@@ -1,9 +1,12 @@
+/*---- common css----- */
 * {
     margin: 0;
     padding: 0;
 }
-body{
-    overflow-x: hidden;
+
+body {
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
 }
 
 ul,
@@ -32,13 +35,87 @@ p {
     clear: both;
 }
 
+/* ------start preloader------ */
 
+#preloader {
+    width: 100%;
+    height: 100vh;
+    background: #f1f2f4;
+    position: fixed;
+    z-index: 999999;
+}
 
+#preloader .loader_items {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 
+#preloader .loader_items span {
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    background-color: #232323;
+}
 
-/*=====================================
-             Menu css start
- =====================================*/
+#preloader .loader_items span:nth-child(1) {
+    -webkit-animation: grow 1s ease-in-out infinite;
+    animation: grow 1s ease-in-out infinite;
+}
+
+#preloader .loader_items span:nth-child(2) {
+    -webkit-animation: grow 1s ease-in-out 0.15s infinite;
+    animation: grow 1s ease-in-out 0.15s infinite;
+}
+
+#preloader .loader_items span:nth-child(3) {
+    -webkit-animation: grow 1s ease-in-out 0.3s infinite;
+    animation: grow 1s ease-in-out 0.3s infinite;
+}
+
+#preloader .loader_items span:nth-child(4) {
+    -webkit-animation: grow 1s ease-in-out 0.45s infinite;
+    animation: grow 1s ease-in-out 0.45s infinite;
+}
+
+#preloader .loader_items span:nth-child(5) {
+    -webkit-animation: grow 1s ease-in-out 0.65s infinite;
+    animation: grow 1s ease-in-out 0.65s infinite;
+}
+
+@-webkit-keyframes grow {
+
+    0%,
+    100% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+
+    50% {
+        -webkit-transform: scaleY(1.8);
+        transform: scaleY(1.8);
+    }
+}
+
+@keyframes grow {
+
+    0%,
+    100% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+
+    50% {
+        -webkit-transform: scaleY(1.8);
+        transform: scaleY(1.8);
+    }
+}
+
+/* ------end preloader------ */
+
+/* -----Menu css start----- */
 
 
 #menu-part nav {
@@ -49,44 +126,49 @@ p {
     width: 100%;
     z-index: 9999;
     padding: 30px 0;
-    transition: .8s ease-in-out !important;
+    transition: .4s ease-in-out !important;
 }
-.fixed{
+
+.fixed {
     width: 100% !important;
     position: fixed !important;
-    top:0px !important;
+    top: 0px !important;
     left: 0 !important;
     padding: 0 !important;
-  
-    background: rgba(0, 0, 0);
+
+    background: #191919;
     transition: .8s ease-in-out !important;
- animation:mymove .8s ease-in-out;
+    animation: mymove .8s ease-in-out;
 }
 
 @keyframes mymove {
     from {
         top: -65px;
     }
+
     to {
-        top:0px;
+        top: 0px;
     }
-  }
-  #menu-part .fixed .navbar-brand img{
-      transform: scale(.8);
-      transition: .8s ease-in-out !important;
-  }
+}
+
+#menu-part .fixed .navbar-brand img {
+    transform: scale(.8);
+    transition: .8s ease-in-out !important;
+}
+
 #menu-part nav .navbar-brand {
     padding: 0;
 }
 
-#menu-part nav .navbar-brand img{
+#menu-part nav .navbar-brand img {
     transform: scale(1);
     transition: .8s ease-in-out !important;
 }
+
 #menu-part .menuitem ul {
     text-align: right;
     padding-top: 20px;
-    padding-bottom:20px;
+    padding-bottom: 20px;
     margin-right: 35px;
 }
 
@@ -112,11 +194,11 @@ p {
 }
 
 #menu-part .menuitem ul li .home {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #menu-part .menuitem ul li .home:after {
-    background: #744fa0;
+    background: #10cfbd;
     width: 100%;
 }
 
@@ -126,13 +208,13 @@ p {
     left: 0;
     width: 0%;
     height: 3px;
-    background: #744fa0;
+    background: #10cfbd;
     content: "";
     transition: .4s;
 }
 
 #menu-part .menuitem .tbn a {
-    background: #744fa0;
+    background: #10cfbd;
     padding: 10px 20px;
     display: inline-block;
     font-weight: bold;
@@ -142,12 +224,22 @@ p {
 
 }
 
-#menu-part .menuitem ul li a:hover {
-    color: #744fa0;
+/* #menu-part .menuitem ul li a:hover {
+    color: #10cfbd;
 
 }
 
 #menu-part .menuitem ul li a:hover:after {
+    width: 50%;
+
+} */
+
+#menu-part .menuitem ul li .active {
+    color: #10cfbd;
+
+}
+
+#menu-part .menuitem ul li .active:after {
     width: 50%;
 
 }
@@ -157,60 +249,52 @@ p {
 }
 
 #menu-part .menuitem .tbn a:hover {
-    color: #000;
+    color: #10cfbd;
     text-decoration-line: none;
     background: #fff;
 }
 
-/*=====================================
-             Menu css end
- =====================================*/
 
-/*=====================================
-             banner css start
- =====================================*/
+/* -----Menu css end----- */
+
+/* -----banner css start----- */
 #banner-part {
-    background: url(../images/banner.png)no-repeat center;
+    background: url(../images/bannerrr.jpg)no-repeat center;
     background-size: cover;
     color: white;
-    text-align: right;
+    text-align: center;
     background-attachment: fixed;
-
-
 }
 
 #banner-part .overly {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .8);
-    padding-top: 235px;
-    padding-bottom: 125px;
-
-
+    background: rgba(0, 0, 0, .5);
+    padding-top: 300px;
+    padding-bottom: 120px;
 }
 
-banner-part .overly a {
+#banner-part .overly a {
     color: white;
 }
 
 #banner-part .overly h1 span {
-    color: #744fa0;
-
+    color: #10cfbd;
 }
 
 #banner-part .overly h1 {
     font-family: 'Raleway', sans-serif;
-    font-size: 56px;
+    font-size: 90px;
     text-transform: uppercase;
     font-weight: bold;
-    margin-bottom: 28px;
+    margin-bottom: 15px;
 }
 
 #banner-part .overly h2 {
     font-family: 'Raleway', sans-serif;
     font-size: 32px;
     text-transform: capitalize;
-    font-weight: 400;
+    font-weight: 700;
     position: relative;
     letter-spacing: .5px;
     display: inline-block;
@@ -220,51 +304,39 @@ banner-part .overly a {
     position: absolute;
     bottom: -30px;
     right: 0;
-    width: 70%;
+    width: 100%;
     height: 2px;
     background: #f8f5fc;
     content: "";
-
-
-}
-
-#banner-part .overly p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    width: 481px;
-    margin-left: auto;
-    margin-top: 50px;
-    margin-bottom: 40PX;
-    letter-spacing: .5px;
-    line-height: 1.5;
 }
 
 #banner-part .overly a {
     text-decoration: none;
     display: inline inline-block;
     position: relative;
+}
 
-
+#banner-part .overly .bton {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
 }
 
 #banner-part .overly .i1 {
     position: relative;
-
 }
 
 #banner-part .overly .i1 a {
     display: inline-block;
-    background: #744fa0;
+    background: #10cfbd;
     color: white;
     text-align: left;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   padding-left: 50px;
-   padding-right: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 50px;
+    padding-right: 14px;
     border-radius: 5px;
-    position: absolute;
-    top: 0px;
-    right: 200px;
+    margin: 0 5px;
     transition: .5s;
 }
 
@@ -287,47 +359,37 @@ banner-part .overly a {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     font-weight: bold;
-   
-    transition: .5s;
     margin-bottom: 0;
-
 }
 
 #banner-part .overly .i1 a:hover {
-    background: white;
+    background: #fff;
     color: #353535;
 }
 
 
 #banner-part .overly .i2 {
     position: relative;
-
-
-
 }
 
 #banner-part .overly .i2 a {
     display: inline-block;
     color: #353535;
-   
     background: white;
     text-align: left;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 50px;
     padding-right: 14px;
-     border-radius: 5px;
     border-radius: 5px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    border-radius: 5px;
+    margin: 0 5px;
     transition: .5s;
 
 }
 
 #banner-part .overly .i2 a i {
     font-size: 35px;
-
     position: absolute;
     bottom: 10px;
     left: 13px;
@@ -346,27 +408,24 @@ banner-part .overly a {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 0;
-    
+
 
 }
 
 #banner-part .overly .i2 a:hover {
-    background: #744fa0;
+    background: #10cfbd;
     color: white;
 }
 
-/*=====================================
-             banner css end
- =====================================*/
-/*=====================================
-             about part css start
- =====================================*/
+/* -----banner css end----- */
+/* -----about css start----- */
 #about-part {
-    margin-top: 80px;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 #about-part .text {
-    margin-top: 68px;
+    margin-top: 0px;
 }
 
 #about-part .text .title {
@@ -374,63 +433,72 @@ banner-part .overly a {
 }
 
 #about-part .text h1 {
-
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    color: #777777;
-    font-weight: 300;
+    color: #444444;
+    font-weight: 600;
     margin: 22px 0;
-    line-height: 2;
-    width: 600px;
-    letter-spacing: .5px;
+    line-height: 1.8;
+    letter-spacing: .2px;
     text-align: left;
 }
 
 #about-part .text h2 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 14px;
-    color: #777777;
-    width: 600px;
-    letter-spacing: .5px;
-    line-height: 2;
+    color: #444444;
+    letter-spacing: .2px;
+    line-height: 1.8;
     text-align: left;
 }
-#about-part .right img{
+
+#about-part .right img {
     width: 100%;
-    height: 100%;
+    height: 360px;
+    position: relative;
+    animation: aboutme linear 2s infinite;
 }
-/*=====================================
-             about part css end
- =====================================*/
-/*=====================================
-             awsome part css start
- =====================================*/
+
+@keyframes aboutme {
+    0% {
+        top: 0px;
+    }
+
+    50% {
+        top: 10px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+/* -----about part css end----- */
+/* -----awsome part css start----- */
 #awsome-part {
-   padding: 30px 0;
+    padding-top: 100px;
     background: #f1f1f1;
 }
 
 #awsome-part .title {
     text-align: center;
-    padding: 30px 0;
+    margin-bottom: 40px;
 }
 
-
-
 #awsome-part a .tala {
-    margin-left: 40px;
+    display: flex;
     position: relative;
     cursor: pointer;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     color: #353535;
 }
 
 #awsome-part a .tala:after {
     position: absolute;
-    bottom: -24px;
-    left: -40px;
-    width: 90%;
+    bottom: -10px;
+    left: 0;
+    width: 70%;
     height: 2px;
     background: #000;
     content: "";
@@ -442,20 +510,20 @@ banner-part .overly a {
 }
 
 #awsome-part a .tala:hover i {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #awsome-part a .tala:hover h2 {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #awsome-part a .tala:hover p {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #awsome-part a .tala:hover:after {
-    width: 110%;
-    background: #744fa0;
+    width: 90%;
+    background: #10cfbd;
 }
 
 #awsome-part a .tala2:hover:after {
@@ -463,33 +531,28 @@ banner-part .overly a {
 }
 
 #awsome-part a i {
-    font-size: 42px;
-    position: absolute;
-    top: 2px;
-    left: -40px;
+    font-size: 40px;
     transition: .4s;
 }
 
 #awsome-part a h2 {
     font-family: 'Raleway', sans-serif;
-    font-size: 18px;
+    margin-left: 10px;
+    font-size: 16px;
     font-weight: bold;
     color: #353535;
     margin-bottom: 4px;
     transition: .4s;
-    margin-left: 15px;
     text-transform: capitalize;
-    letter-spacing: .5px;
 }
 
 #awsome-part a p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    color: #777777;
+    font-size: 13px;
+    color: #444444;
     font-weight: 300;
     transition: .4s;
-    letter-spacing: .4px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 #awsome-part .nav-pills .nav-link {
@@ -502,20 +565,20 @@ banner-part .overly a {
 }
 
 #awsome-part .nav-pills .active .tala i {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #awsome-part .nav-pills .active .tala h2 {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #awsome-part .nav-pills .active .tala p {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
 #awsome-part .nav-pills .active .tala:after {
-    width: 110%;
-    background: #744fa0;
+    width: 90%;
+    background: #10cfbd;
 }
 
 #awsome-part .nav-pills .active .tala2:after {
@@ -527,149 +590,56 @@ banner-part .overly a {
 }
 
 #awsome-part .middle img {
-    width: 255px;
-    height: 452px;
+    width: 100%;
 }
 
-
-
 #awsome-part .tab-content .right {
-    text-align: right;
+    text-align: center;
 }
 
 #awsome-part .tab-content .right h3 {
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
     font-weight: bold;
-    color: #353535;
-    margin-top: 70px;
-    letter-spacing: .5px;
-
+    color: #ffffff;
+    margin-top: 20px;
     text-transform: uppercase;
+    padding: 7px;
+    border-radius: 5px;
+    background: rgba(16, 207, 189, 0.8);
+    display: inline-block;
 }
 
 #awsome-part .tab-content .right p {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    color: #777777;
-    font-weight: 300;
+    color: #474646;
+    font-weight: 600;
     margin-top: 30px;
-    width: 356px;
     line-height: 25px;
-    letter-spacing: .5px;
+    letter-spacing: .2px;
 }
 
-/*=====================================
-             awsome part css end
- =====================================*/
-/*=====================================
-             screenshort part css start
- =====================================*/
-#screenshot-part {
-    width: 100%;
-   padding-bottom: 80px;
-    margin-top: 80px;
-}
+/*------- awsome part css end -------*/
 
-#screenshot-part .title {
-    width: 100%;
-    text-align: center;
-}
+/*---------- watch part css start---------- */
 
-#screenshot-part .tula {
-    position: relative;
-}
-
-#screenshot-part .img {
- 
-    margin: 0 10px;
-    padding-top: 30px;
-    
-}
-
-#screenshot-part .img img {
-    width: 100%;
-    height: 100%;
-    transform: scale(.9);
-    transition: .8s;
-}
-
-#screenshot-part .img img:hover {
-    transform: scale(1);
-}
-
-#screenshot-part .slick-current img {
-    transform: scale(1);
-}
-
-#screenshot-part .tula ul {
-    position: absolute;
-    bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-
-}
-
-#screenshot-part .tula ul li {
-    display: inline-block;
-    margin-left: 10px;
-}
-
-#screenshot-part .tula ul li button {
-    font-size: 0;
-    width: 17px;
-    height: 17px;
-    background: transparent;
-    border: 3px solid #353535;
-    border-radius: 50%;
-    outline: 0;
-    position: relative;
-
-
-}
-
-#screenshot-part .tula ul .slick-active button:after {
-    background: #353535;
-}
-
-#screenshot-part .tula ul li button:after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-51%, -52%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-
-    background: transparent;
-    content: "";
-}
-
-/*=====================================
-             screenshort part css end
- =====================================*/
-/*=====================================
-             watch part css start
- =====================================*/
 #watch-part {
     width: 100%;
-    padding-top: 80px;
-    height: 600px;
-
-
+    padding-top: 100px;
 }
 
 #watch-part .title {
     text-align: center;
-    padding-bottom: 35px;
+    padding-bottom: 60px;
 }
 
 #watch-part .play {
-    width: 100%;
-    height: 400px;
-    background: url(../images/plllll.png) no-repeat center;
+    height: 300px;
+    background: url(../images/watch-part.jpg) no-repeat center;
     background-size: cover;
-    background-attachment: fixed;
+    margin: 0 30px;
+    border-radius: 10px;
 }
 
 #watch-part .play .overlay {
@@ -680,6 +650,41 @@ banner-part .overly a {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+}
+
+#watch-part .text h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 7px;
+    border-radius: 5px;
+    background: rgba(16, 207, 189, 0.8);
+    display: inline-block;
+    text-align: right;
+}
+
+#watch-part .text h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #444444;
+    font-weight: 600;
+    margin: 22px 0;
+    line-height: 1.8;
+    letter-spacing: .2px;
+    text-align: left;
+}
+
+#watch-part .text h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #444444;
+    letter-spacing: .2px;
+    line-height: 1.8;
+    text-align: left;
 }
 
 #watch-part .play .overlay i {
@@ -687,50 +692,54 @@ banner-part .overly a {
     color: #fff;
     transition: .4s;
 }
-#watch-part .play .overlay:hover i{
-    color: #744fa0
 
+#watch-part .play .overlay:hover i {
+    color: #10cfbd
 }
-/*=====================================
-             watch part css end
- =====================================*/
-/*=====================================
-             pricing part css start
- =====================================*/
+
+/*---------- watch part css end---------- */
+
+/* -------pricing part css start------- */
+
 .pricing-part {
-   padding-top: 80px;
-   padding-bottom: 60px;
+    padding-top: 100px;
 }
 
 .pricing-part .title {
     text-align: center;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .pricing-part .a {
-   
-    background: #f1f1f1;
+    background: rgb(16, 207, 189);
     text-align: center;
     position: relative;
     border-radius: 20px;
-    transform: scale(.9);
     transition: .6s;
     padding-bottom: 62px;
     margin: 10px 0;
+    transition: .3s;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(16, 207, 189, .4);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(16, 207, 189, .4);
+    box-shadow: 0px 0px 5px 0px rgba(16, 207, 189, .4);
 }
 
 .pricing-part .a:hover {
-    transform: scale(1);
+    background: #353535;
+}
+
+.pricing-part .a:hover {
+    transform: scale(1.1);
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.0);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.0);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .pricing-part .a .b {
     width: 100%;
     height: 40px;
-    background: #f1f1f1;
+    background: #10cfbd;
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
@@ -752,16 +761,18 @@ banner-part .overly a {
     top: 65px;
 }
 
-
-
 .pricing-part .a .c p {
     height: 115px;
     width: 115px;
-    border: 3px solid #f1f1f1;
+    border: 3px solid #10cfbd;
     border-radius: 50%;
     text-align: center;
     margin: 0 auto;
     margin-top: 20px;
+}
+
+.pricing-part .a:hover .c p {
+    border: 3px solid #353535;
 }
 
 .pricing-part .a .c p span {
@@ -787,15 +798,18 @@ banner-part .overly a {
 }
 
 .pricing-part .a .d {
-    
     width: 156px;
     margin-top: 200px;
-    margin-left:auto;
-    margin-right:auto;
-    
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     line-height: 2;
+}
+
+.pricing-part .a:hover .d {
+    color: #fff;
 }
 
 .pricing-part .a a {
@@ -803,11 +817,11 @@ banner-part .overly a {
     padding: 10px 20px;
     border: 1px solid #353535;
     border-radius: 4px;
-    background: #fff;
+    background: #353535;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     font-weight: bold;
-    color: #353535;
+    color: #fff;
     position: absolute;
     top: 390px;
     left: 50%;
@@ -817,56 +831,50 @@ banner-part .overly a {
 
 .pricing-part .a:hover .b {
     color: #fff;
-    background: #744fa0;
-    border-color: #744fa0;
+    background: #353535;
+    border-color: #353535;
 }
 
 .pricing-part .a:hover a {
     color: #fff;
-    background: #744fa0;
-    border-color: #744fa0;
+    background: #10cfbd;
+    border-color: #10cfbd;
 }
 
-/*=====================================
-             pricing part css end
- =====================================*/
-/*=====================================
-             awsome team part css start
- =====================================*/
+/* -------pricing part css end------- */
+
+/*------ awsome team part css start------ */
+
 #awsome-team {
-    padding-top: 80px;
-    padding-bottom: 60px;
-
-
+    padding-top: 100px;
 }
-
-
 
 #awsome-team .title {
     text-align: center;
 }
 
 #awsome-team .member {
-   width: 100%;
+    width: 100%;
     position: relative;
     margin-top: 70px;
     transition: .4s ease-in-out;
     top: 0;
-    transform: scale(.9);
-    
-
 }
 
 #awsome-team .member .img {
     padding-top: 15px;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
-    background: #f1f1f1;
+    background: #afafaf;
     text-align: center;
     position: relative;
 }
 
-
+#awsome-team .member .img img {
+    width: 100%;
+    height: 280px;
+    padding: 0 20px;
+}
 
 #awsome-team .member .img .overlay {
     width: 100%;
@@ -879,8 +887,6 @@ banner-part .overly a {
     left: 0;
     opacity: 0;
     transition: .4s ease-in-out;
-
-
 }
 
 #awsome-team .member .img .overlay .icon {
@@ -888,21 +894,22 @@ banner-part .overly a {
 }
 
 #awsome-team .member .img .overlay .icon a {
-    display: inline-block;
+    display: flex;
     position: absolute;
     top: 160px;
-    left: 80px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #awsome-team .member .img .overlay .icon a i {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: #fff;
     color: #353535;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
-    font-size: 24px;
+    line-height: 40px;
+    font-size: 22px;
     margin-left: 7px;
     transition: .4s ease-in-out;
     cursor: pointer;
@@ -911,19 +918,18 @@ banner-part .overly a {
 }
 
 #awsome-team .member .img .overlay .icon a i:hover {
-    background: #1da1f2;
+    background: #10cfbd;
     color: #fff;
     text-decoration: none;
 }
 
 #awsome-team .member .text {
-
     text-align: center;
-    padding: 30px 0;
+    padding: 10px 0;
     border: 1px solid #353535;
     border-top: 0;
     position: absolute;
-    top: 170px;
+    top: 294px;
     left: 0;
     width: 100%;
     z-index: -1;
@@ -936,13 +942,8 @@ banner-part .overly a {
     opacity: 1;
 }
 
-#awsome-team .member:hover .text {
-    top: 360px;
-
-}
-
 #awsome-team .member:hover {
-    top: -52px;
+    top: -32px;
 }
 
 #awsome-team .member .text .name {
@@ -972,28 +973,103 @@ banner-part .overly a {
 
 }
 
-/*=====================================
-             awsome team css end
- =====================================*/
+/* -------awsome-team css end------- */
 
-/*=====================================
-             feedback part css start
- =====================================*/
+/*------- counter part css start------- */
+
+#counter_part {
+    margin-top: 150px;
+    background: rgba(237, 239, 244, 0.7);
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#counter_part::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -15%;
+    width: 0;
+    height: 0;
+    border-width: 60px 130px 60px 130px;
+    border-style: solid;
+    border-color: transparent #10cfbd #10cfbd transparent;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: all linear 0.4s;
+    transition: all linear 0.4s;
+}
+
+#counter_part::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -7%;
+    width: 0;
+    height: 0;
+    border-width: 70px 150px 70px 150px;
+    border-style: solid;
+    border-color: transparent #10cfbd #10cfbd transparent;
+    -webkit-transition: all linear 0.4s;
+    transition: all linear 0.4s;
+}
+
+#counter_part .counter_items {
+    text-align: center;
+}
+
+#counter_part .counter_items .icon i {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+    background: #10cfbd;
+    margin-bottom: 5px;
+}
+
+#counter_part .counter_items p {
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+#counter_part .counter_items p span {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+#counter_part:hover::before {
+    left: -7%;
+}
+
+#counter_part:hover::after {
+    right: -15%;
+}
+
+/*------- counter part css end------- */
+
+/*------- feedback part css start------- */
+
 #feedback-part {
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 #feedback-part .title {
     text-align: center;
     margin-bottom: 60px;
-
 }
 
 #feedback-part .feedback-part {
-    background: url(../images/feedback1111.png) no-repeat center;
+    background: url(../images/testimonial.webp) no-repeat center;
     background-size: cover;
-    
-
     background-attachment: fixed;
 }
 
@@ -1001,9 +1077,8 @@ banner-part .overly a {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: rgba(11, 11, 11, .6);
+    background: rgba(16, 207, 189, 0.8);
     padding-bottom: 60px;
-
 }
 
 #feedback-part .feedback-part .overlay .ditto {
@@ -1013,44 +1088,35 @@ banner-part .overly a {
 #feedback-part .feedback-part .overlay .ditto {
     width: 630px;
     height: 290px;
-
     margin: 0 auto;
 }
 
 #feedback-part .feedback-part .text {
     background: #f1f1f1;
-
     margin-top: 40px;
     height: 230px;
-   
     display: inline-block;
     text-align: center;
     padding-top: 25px;
-
     padding-left: 30px;
     padding-right: 30px;
     border-radius: 20px;
     position: relative;
-
-
 }
 
 #feedback-part .feedback-part .overlay .text .details {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    color: #777777;
+    color: #444444;
+    font-weight: 600;
     line-height: 2;
     letter-spacing: .5px;
     width: 572px;
     padding-bottom: 13px;
-
-
 }
 
 #feedback-part .feedback-part .overlay .ditto .tato i {
-    color: #744fa0;
-
-
+    color: #10cfbd;
 }
 
 #feedback-part .feedback-part .overlay .ditto h2 {
@@ -1065,9 +1131,10 @@ banner-part .overly a {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #555555;
+    font-weight: 600;
 }
 
-#feedback-part .feedback-part .overlay .ditto .slick-list{
+#feedback-part .feedback-part .overlay .ditto .slick-list {
     height: 300px;
 }
 
@@ -1079,23 +1146,20 @@ banner-part .overly a {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
-   border-top-left-radius:30px ;
-   border-bottom-right-radius:5px ;
-   z-index: 9;
-
-
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 5px;
+    z-index: 9;
 }
 
-#feedback-part .feedback-part .overlay .botom{
-   margin-top: 30px;
-   height: 170px;
-   position: relative;
+#feedback-part .feedback-part .overlay .botom {
+    margin-top: 30px;
+    height: 170px;
+    position: relative;
 }
 
 #feedback-part .feedback-part .overlay .asia {
     width: 370px;
     margin: 0 auto;
-
 }
 
 #feedback-part .feedback-part .overlay .asia .uk {
@@ -1107,11 +1171,12 @@ banner-part .overly a {
     transform: scale(.7);
     border: 3px solid transparent;
 }
+
 #feedback-part .feedback-part .overlay .asia .uk img {
     height: 100%;
     width: 100%;
-
 }
+
 #feedback-part .feedback-part .overlay .asia .uk .over {
     width: 100%;
     height: 100%;
@@ -1120,29 +1185,27 @@ banner-part .overly a {
     position: absolute;
     top: 0;
     left: 0;
-
 }
+
 #feedback-part .feedback-part .overlay .asia .slick-current .over {
     background: transparent;
 }
+
 #feedback-part .feedback-part .overlay .asia .slick-current {
     transform: scale(1);
-    border: 3px solid #744fa0;
-   
+    border: 3px solid #10cfbd;
 }
 
 #feedback-part .feedback-part .overlay .botom ul {
     position: absolute;
-    top:65%;
+    top: 65%;
     left: 50%;
-    transform: translate(-50%,-50%);
-
+    transform: translate(-50%, -50%);
 }
 
 #feedback-part .feedback-part .overlay .asia ul li {
     display: inline-block;
     margin-left: 10px;
-   
 }
 
 #feedback-part .feedback-part .overlay .asia ul li button {
@@ -1154,8 +1217,6 @@ banner-part .overly a {
     border-radius: 50%;
     outline: 0;
     position: relative;
-
-
 }
 
 #feedback-part .feedback-part .overlay .asia ul .slick-active button:after {
@@ -1170,28 +1231,31 @@ banner-part .overly a {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-
     background: transparent;
     content: "";
 }
 
-/*=====================================
-             feedback part css end
- =====================================*/
-/*=====================================
-             form part css strat
- =====================================*/
+/* -------feedback part css end------- */
+
+/*------- form part css strat------- */
+
+.form .left img {
+    width: 100%;
+    height: 610px;
+    position: relative;
+
+}
+
 .form {
     width: 100%;
     height: 600px;
-
-    margin-top: 110px;
-
+    padding-top: 110px;
+    margin-bottom: 239px;
 }
 
 .form .title {
     text-align: center;
-
+    margin-bottom: 60px;
 }
 
 .form form {
@@ -1208,7 +1272,6 @@ banner-part .overly a {
     border-radius: 5px;
     box-sizing: border-box;
     padding-left: 10px;
-
 }
 
 .form form textarea {
@@ -1221,7 +1284,6 @@ banner-part .overly a {
     padding-left: 10px;
     padding-top: 10px;
     resize: none;
-
 }
 
 .form form input::placeholder {
@@ -1246,68 +1308,75 @@ banner-part .overly a {
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background: #744fa0;
+    background: #10cfbd;
     border: 0;
     padding: 10px 17px;
     border-radius: 5px;
     margin-top: 30px;
-    border: 1px solid #744fa0;
+    border: 1px solid #10cfbd;
     transition: .4s;
 }
 
 .form .button button:hover {
-    color: #744fa0;
+    color: #10cfbd;
     background: #fff;
 }
 
-/*=====================================
-             form part css end
- =====================================*/
-/*=====================================
-             footer part css start
- =====================================*/
+
+/* --------form part css end-------- */
+
+/* --------footer part css start-------- */
+
 .footer {
     width: 100%;
-    height: 260px;
-    background: #353535;
+    height: 400px;
+    background: #191919;
     text-align: center;
-}
-
-.footer .title {
-    text-align: center;
-
+    position: relative;
 }
 
 .footer .title img {
     margin-top: 30px;
+    margin-bottom: 5px;
+    transform: scale(.9);
+}
+
+.footer .left_logo p {
+    margin-left: 15px;
+    color: #3b3b3b;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .footer .i1 {
     margin: 0 auto;
+}
 
+.footer .left_logo {
+    text-align: left;
 }
 
 .footer .i1 a {
     display: inline-block;
-    color: #353535;
+    color: #fff;
 }
 
 .footer .i1 i {
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-    background: #f1f1f1;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    background: #212121;
     border-radius: 50%;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 5px;
-    line-height: 50px;
+    line-height: 40px;
     transition: .5s;
 }
 
 .footer .i1 i:hover {
-    background: #1da1f2;
+    background: #10cfbd;
     color: #ffffff;
 }
 
@@ -1315,13 +1384,69 @@ banner-part .overly a {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #fff;
+    font-weight: 600;
 }
 
 .footer p span {
-    color: #744fa0;
+    color: #10cfbd;
 }
 
+.footer_bottom {
+    background: rgb(17, 16, 16);
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-/*=====================================
-             footer part css end
- =====================================*/
+.footer .imgg {
+    position: absolute;
+    top: -98px;
+    right: 0;
+    width: 100%;
+    height: 456px;
+}
+
+.footer .middle .contact h1 {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: .5px;
+    font-family: 'Open Sans', 'sans-serif';
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.footer .middle .contact .com {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.footer .middle .contact .com i {
+    font-size: 22px;
+    height: 44px;
+    width: 44px;
+    background: #10cfbd;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.footer .middle .contact .com p {
+    font-size: 14px;
+    color: #fff;
+    width: 105px;
+    font-weight: 400;
+    letter-spacing: .12px;
+    line-height: 25px;
+    font-family: 'Open Sans', 'sans-serif';
+}
+
+/* --------footer part css end-------- */
